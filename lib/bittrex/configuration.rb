@@ -6,13 +6,12 @@ module Bittrex
 
     attr_accessor :key, :secret
 
-    @@defaults = {
-      key: ENV['bittrex_api_key'],
-      secret: ENV['bittrex_api_secret']
-    }
 
     def self.defaults
-      @@defaults
+      {
+        key: ENV['bittrex_api_key'],
+        secret: ENV['bittrex_api_key'],
+      }
     end
 
     def initialize
@@ -27,7 +26,7 @@ module Bittrex
     end
 
     def reset
-      @@defaults.each_pair { |k, v| send("#{k}=", v) }
+      self.class.defaults.each_pair { |k, v| send("#{k}=", v) }
     end
   end
 end
