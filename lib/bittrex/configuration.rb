@@ -10,7 +10,7 @@ module Bittrex
     def self.defaults
       {
         key: ENV['bittrex_api_key'],
-        secret: ENV['bittrex_api_key'],
+        secret: ENV['bittrex_api_secret'],
       }
     end
 
